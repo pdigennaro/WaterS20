@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="network.waters.app.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:id="@+id/rDeviceInfos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:visibility="invisible">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            map:mapType="normal"
+            android:layout_above="@+id/tPoint"/>
+
+        <TextView
+            android:id="@+id/tPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="."
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tPoint">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="@string/device_name"
+                        android:textStyle="normal|italic"
+                        android:layout_marginLeft="5dp" />
+
+                    <TextView
+                        android:id="@+id/tDevName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="---dev_name---" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="@string/device_last_activity"
+                        android:textStyle="normal|italic"
+                        android:layout_marginLeft="5dp" />
+
+                    <TextView
+                        android:id="@+id/tLastActivity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="---last_activity---" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="@string/device_latest_gps_positions"
+                    android:textStyle="normal|italic"
+                    android:layout_marginLeft="5dp" />
+
+
+                <TableLayout
+                    android:id="@+id/table_gps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TableRow
+                        android:id="@+id/rowTitles1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape"
+                            android:padding="10dp"
+                            android:text="@string/device_date"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="normal|bold"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape"
+                            android:padding="10dp"
+                            android:text="@string/device_latitude"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="normal|bold"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape"
+                            android:textStyle="normal|bold"
+                            android:padding="10dp"
+                            android:text="@string/device_longitude"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:gravity="center_horizontal" />
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/tLatestPars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_latest_events"
+                    android:textSize="25sp"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="normal|italic"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp" />
+
+                <TableLayout
+                    android:id="@+id/table_pars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TableRow
+                        android:id="@+id/rowTitles2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textVie12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape"
+                            android:padding="10dp"
+                            android:text="@string/device_date"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="normal|bold"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/textVie13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape"
+                            android:padding="10dp"
+                            android:text="@string/device_ParName"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="normal|bold"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/textVie14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cell_shape"
+                            android:padding="10dp"
+                            android:text="@string/device_ParValue"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="normal|bold"
+                            android:gravity="center_horizontal" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lMainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/ic_hires" />
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/logo"
+            android:textSize="60sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_device_text"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/appName"
+            android:layout_marginTop="50dp"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

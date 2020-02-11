@@ -1,0 +1,5 @@
+#ignore credentials file
+api/credentials.php
+
+#ignore some custom vs scripts
+.vscode/

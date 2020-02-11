@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dev_select"
+            android:icon="@drawable/ic_add_24dp"
+            android:title="@string/menu_select_device" />
+        <item
+            android:id="@+id/nav_rils"
+            android:icon="@drawable/ic_list_24dp"
+            android:title="@string/menu_detections" />
+        <item
+            android:id="@+id/nav_gpspositions"
+            android:icon="@drawable/ic_gps_fixed_24dp"
+            android:title="@string/menu_gps_positions" />
+
+        <item
+            android:id="@+id/nav_graphs"
+            android:icon="@drawable/ic_broken_image_24dp"
+            android:title="@string/menu_show_graphs" />
+    </group>
+
+    <item android:title="@string/menu_info">
+        <menu>
+            <item
+                android:id="@+id/nav_abstract"
+                android:icon="@drawable/ic_picture_as_pdf_24dp"
+                android:title="@string/menu_abstract" />
+            <item
+                android:id="@+id/nav_credits"
+                android:icon="@drawable/ic_info_24dp"
+                android:title="@string/menu_credits" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_exit_to_app_24dp"
+                android:title="@string/menu_exit" />
+        </menu>
+    </item>
+
+</menu>

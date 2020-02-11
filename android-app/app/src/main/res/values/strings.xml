@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">WaterS</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_detections">Detections</string>
+
+    <string name="select_device_text">Select a device</string>
+    <string name="select_device_first">Select a device first!</string>
+
+    <string name="device_name">Device name: </string>
+    <string name="device_latest_events_title">Latest events for: </string>
+    <string name="device_last_activity">Last activity: </string>
+    <string name="device_latest_gps_positions">Latest GPS positions:</string>
+    <string name="device_date">Date</string>
+    <string name="device_latitude">Latitude</string>
+    <string name="device_longitude">Longitude</string>
+    <string name="device_latest_events">Latest events:</string>
+    <string name="device_ParName">Parameter</string>
+    <string name="device_ParValue">Value</string>
+    <string name="map_activity_error">The map activity found an error!</string>
+    <string name="update">Update</string>
+
+    <string name="no_results">No results!</string>
+    <string name="set">SET</string>
+    <string name="reset">RESET</string>
+
+    <string name="detections_title">ADV search for: </string>
+    <string name="set_starttime">Set start time</string>
+    <string name="set_endtime">Set end time</string>
+    <string name="set_parameters">Set parameters</string>
+    <string name="start_time_unset">Start time not set</string>
+    <string name="end_time_unset">End time not set</string>
+    <string name="pars_unset">Parameters not set</string>
+
+    <string name="gps_activity_title">GPS positions for: </string>
+    <string name="latest_position">Latest position</string>
+    <string name="position_no">Position #</string>
+
+    <string name="results">Results</string>
+
+    <string name="graphics_activity_title">ADV graphics for: </string>
+
+    <!-- parameters -->
+    <string name="par1">Temperature</string>
+    <string name="par2">Torbidity</string>
+    <string name="par3">ph</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_login">Invalid login!</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+    <!-- menus -->
+    <string name="menu_select_device">Select device</string>
+    <string name="menu_detections">Detections</string>
+    <string name="menu_gps_positions">GPS positions</string>
+    <string name="menu_show_graphs">Show graphs</string>
+    <string name="menu_info">Info</string>
+    <string name="menu_abstract">WaterS abstract</string>
+    <string name="menu_credits">CREDITS</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="one_week">1 week</string>
+    <string name="three_weeks">3 weeks</string>
+    <string name="one_month">1 month</string>
+    <string name="three_months">3 months</string>
+
+    <string name="credits_text"><![CDATA[The <b>WaterS</b> app!<br />v.%1$s<br /><br />The WaterS app, device and framework have been developed by:<br />- Pietro Di Gennaro;<br />- Domenico Lofù;<br />- Vitanio Daniele.<br /><br />The application uses the following libraries:<br />-The Google Maps APIs;<br />- <a href=https://github.com/google/volley>the Google Volley lib</a>;<br />- <a href=http://www.android-graphview.org>Graphview lib</a>;<br />- <a href=https://github.com/jjobes/SlideDateTimePicker>slideDateTimePicker lib</a>.<br /><br />The application also makes use of <a href=https://developer.android.com/studio/write/vector-asset-studio.html>vector graphics</a> under Apache 2.0 license.]]></string>
+</resources>

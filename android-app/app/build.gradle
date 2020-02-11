@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "network.waters.app"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 7
+        versionName "3.0e"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    lintOptions {
+        disable 'MissingTranslation'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '27.0.3'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27+'
+    implementation 'com.android.support:design:27+'
+    implementation 'com.android.support.constraint:constraint-layout:+'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.jjoe64:graphview:4.2.1'
+    compile 'com.google.android.gms:play-services-maps:11.6.2'
+    compile project(path: ':slideDateTimePicker')
+}

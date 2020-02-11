@@ -1,0 +1,74 @@
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancella</string>
+
+    <string name="action_detections">Rilevamenti</string>
+
+    <string name="select_device_text">Selez. un dispositivo</string>
+    <string name="select_device_first">Prima seleziona un dispositivo!</string>
+
+    <string name="device_name">Nome dispositivo: </string>
+    <string name="device_latest_events_title">Ultimi eventi di: </string>
+    <string name="device_last_activity">Ultima attività: </string>
+    <string name="device_latest_gps_positions">Ultime posiz. GPS:</string>
+    <string name="device_date">Data</string>
+    <string name="device_latitude">Latitudine</string>
+    <string name="device_longitude">Longitudine</string>
+    <string name="device_latest_events">Ultimi eventi:</string>
+    <string name="device_ParName">Parametro</string>
+    <string name="device_ParValue">Valore</string>
+    <string name="map_activity_error">Errore nel caricamento della mappa!</string>
+    <string name="update">Aggiorna</string>
+
+    <string name="no_results">Nessun risultato!</string>
+    <string name="set">IMPOSTA</string>
+    <string name="reset">REIMP.</string>
+
+    <string name="detections_title">Ricerca avanzata per: </string>
+    <string name="set_starttime">Imposta data iniziale</string>
+    <string name="set_endtime">Imposta data finale</string>
+    <string name="set_parameters">Imposta parametri</string>
+    <string name="start_time_unset">Tempo iniziale non imp.</string>
+    <string name="end_time_unset">Tempo finale non imp.</string>
+    <string name="pars_unset">Parametri non impostati</string>
+
+    <string name="gps_activity_title">Posizioni GPS di: </string>
+    <string name="latest_position">Ultima posizione</string>
+    <string name="position_no">Posizione #</string>
+
+    <string name="results">Risultati</string>
+
+    <string name="graphics_activity_title">Grafici avanzati di: </string>
+
+    <!-- parameters -->
+    <string name="par1">Temperatura</string>
+    <string name="par2">Torbidità</string>
+    <string name="par3">ph</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="error_invalid_login">Credenziali non valide!</string>
+    <string name="error_invalid_password">Questa password è troppo corta</string>
+    <string name="error_incorrect_password">La password non è corretta</string>
+    <string name="error_field_required">Questo campo è richiesto</string>
+
+    <!-- menus -->
+    <string name="menu_select_device">Selez. dispositivo</string>
+    <string name="menu_detections">Rilevamenti</string>
+    <string name="menu_gps_positions">Posizioni GPS</string>
+    <string name="menu_show_graphs">Mostra grafici</string>
+    <string name="menu_info">Info</string>
+    <string name="menu_abstract">WaterS abstract</string>
+    <string name="menu_credits">CREDIT</string>
+    <string name="menu_exit">Esci</string>
+
+    <string name="one_week">1 settimana</string>
+    <string name="three_weeks">3 settimane</string>
+    <string name="one_month">1 mese</string>
+    <string name="three_months">3 mesi</string>
+
+    <string name="credits_text"><![CDATA[L\'app <b>WaterS</b>!<br />v.%1$s<br /><br />L\'app WaterS, inclusi il dispositivo e il framework, sono stati sviluppati da:<br />- Pietro Di Gennaro;<br />- Domenico Lofù;<br />- Vitanio Daniele.<br /><br />L\'applicazione fa uso delle seguenti librerie:<br />- The Google Maps APIs;<br />- <a href=https://github.com/google/volley>the Google Volley lib</a>;<br />- <a href=http://www.android-graphview.org>Graphview lib</a>;<br />- <a href=https://github.com/jjobes/SlideDateTimePicker>slideDateTimePicker lib</a>.<br /><br />Inoltre l\'app fa uso di <a href=https://developer.android.com/studio/write/vector-asset-studio.html>grafica vettoriale</a> distribuita con licenza Apache 2.0.]]></string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_oneweek"
+        android:orderInCategory="100"
+        android:title="@string/one_week"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_3weeks"
+        android:orderInCategory="100"
+        android:title="@string/three_weeks"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_onemonth"
+        android:orderInCategory="100"
+        android:title="@string/one_month"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_3months"
+        android:orderInCategory="100"
+        android:title="@string/three_months"
+        app:showAsAction="never" />
+</menu>
