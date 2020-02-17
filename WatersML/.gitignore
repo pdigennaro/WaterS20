@@ -1,0 +1,10 @@
+model.h5
+model.json
+*.csv
+config.py
+__pycache__/
+RESULTS/
+*.png
+log.txt
+config.py
+samples/
