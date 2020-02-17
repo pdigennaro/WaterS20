@@ -43,4 +43,4 @@ You can also use the automatic train with dynamic setting of neurons and epochs 
 License
 ----
 
-GPLv3
+WaterS is released under the GPLv3 <a href="LICENSE">license</a>.
