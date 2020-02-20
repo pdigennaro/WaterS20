@@ -19,7 +19,7 @@ The libraries used by WaterS 2.0 are the following:
 | Matplotlib | [https://matplotlib.org/] |
 
 # Instructions
-We to use a Linux based distro such as Ubuntu.
+We suggest to use a Linux based distro such as Ubuntu.
 Use the following commands to install the scripts' dependencies:
 
 ```sh
@@ -39,6 +39,23 @@ $ ./train.py
 Train data will be created in the same folder of the Python script.
 
 You can also use the automatic train with dynamic setting of neurons and epochs (see the train_script.sh file). In this case, a custom "RESULTS" folder will be created, with the train data according to the dynamic configuration chosen.
+
+## Arduino Environment
+
+This work uses the Arduino MKRFOX1200, a development board which contains the [ATMEL SAMD21](http://www.atmel.com/Images/Atmel-42181-SAM-D21_Datasheet.pdf) micro controller. As all Arduino devices, the MKRFOX1200 can be programmed using the Arduino Software (IDE).
+
+Detailed instructions for installation in popular operating systems can be found at:
+
+-  [Linux](https://www.arduino.cc/en/Guide/Linux) (see also the [Arduino playground](https://playground.arduino.cc/Learning/Linux))
+-  [macOS](https://www.arduino.cc/en/Guide/MacOSX)
+-  [Windows](https://www.arduino.cc/en/Guide/Windows)
+
+The Arduino MKRFOX1200 requires also the installation of additional libraries (for adding the [SigFox](https://www.sigfox.com/en) connectivity to the Arduino platform) to be integrated into the Arduino IDE. All the necessary information are available below:
+- [Guide MKRFOX 1200](https://www.arduino.cc/en/Guide/MKRFox1200)
+
+After that, just import the arduino/Waters\_source\_v2.ino file into the Arduino IDE and deploy it to your device!
+
+For more information on how to get started with these kind of product please visit the [Getting Started page](https://www.arduino.cc/en/Guide/HomePage).
 
 License
 ----
