@@ -7,6 +7,10 @@ The goal is to make predictions of water quality through time series analysis.
 The dataset used for training the model contains a qualitative and quantitative monitoring system of the underground water bodies. It is populated with several water parameters, such as, average temperature, electric conductivity, medium dissolved oxygen, and PH) coming from different station probes.
 The code is mainly written with Python 3 and integrates different types of libraries for the back-end computation of the model. There are also several bash scripts, so for a faithful reproduction, a Linux environment is recommended.
 
+<p align="center">
+  <img src="/images/NeuralN.png" width="60%" height="60%">
+</p>
+
 The libraries used by WaterS 2.0 are the following:
 
 | Plugin | README |
@@ -55,9 +59,15 @@ The Arduino MKRFOX1200 requires also the installation of additional libraries (f
 
 After that, just import the arduino/Waters\_source\_v2.ino file into the Arduino IDE and deploy it to your device!
 
+<p align="center">
+  <img src="/images/Water1.jpg">
+</p>
+<p align="center"> WaterS System and detailed component part list </p>
+
 For more information on how to get started with these kind of product please visit the [Getting Started page](https://www.arduino.cc/en/Guide/HomePage).
 
 License
 ----
 
 WaterS is released under the GPLv3 <a href="LICENSE">license</a>.
+
