@@ -8,7 +8,7 @@ The dataset used for training the model contains a qualitative and quantitative 
 The code is mainly written with Python 3 and integrates different types of libraries for the back-end computation of the model. There are also several bash scripts, so for a faithful reproduction, a Linux environment is recommended.
 
 <p align="center">
-  <img src="/images/NeuralN.png" width="60%" height="60%">
+  <img src="/images/NeuralN.png" width="100%" height="100%">
 </p>
 
 The libraries used by WaterS 2.0 are the following:
