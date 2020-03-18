@@ -26,7 +26,6 @@ typedef struct __attribute__ ((packed)) sigfox_message_one {   //struct of sigfo
   int16_t phValue;
   int16_t turbidity; 
   int8_t flag;
-  
 } SigfoxMessageSens;
 
 
@@ -48,8 +47,8 @@ void setup() {
   Serial.begin(9600);
   Serial1.begin(9600);  //RX serial for gps transmission
     
- // while (!Serial) {};   //Sigfox Setup
-   if (!SigFox.begin()) {
+  if (!SigFox.begin())
+  {
     Serial.println("Shield error or not present!");
     return;
   }
@@ -79,42 +78,33 @@ void setup() {
 
   // Send the module to the deepest sleep
   SigFox.end();
-//  Serial.println("Sending " + sensorValue);
-//  Serial.println("Sending " + waterTemp);
-
-  // Remove EOL
- // sensorValue.trim();
-//  waterTemp.trim(); 
 
 }
 
 void loop()
 {  
- 
   //GPS
   while (Serial1.available())  //Serial port for GPS
-    if (gps.encode(Serial1.read()))
-      startScanning();
-
-  if (millis() > 5000 && gps.charsProcessed() < 10)
   {
-    Serial.println(F("No GPS detected: check wiring."));
-    while(true);
+    if (gps.encode(Serial1.read()))
+    {
+      startScanning();
+    }
   }
   
-
 }
 
 void startScanning()
 {
-  //GPS DisplayInfo ------------------------------------------------------------
-  delay(300);
+  /* ------------------GPS DisplayInfo ------------------ */
+  
   Serial.println("---GPS info---");
+  
   if (gps.location.isValid())
   {
     Serial.print("Latitude: ");
     Serial.println(gps.location.lat(), 6);
-     Serial.print("Longitude: ");
+    Serial.print("Longitude: ");
     Serial.println(gps.location.lng(), 6); 
     Serial.println(""); 
   }
@@ -125,7 +115,7 @@ void startScanning()
     Serial.println("");
   }
 
- //PH DisplayInfo --------------------------------------------------------------
+  /* ------------------PH DisplayInfo ------------------ */
  
   Serial.println("---PH info---");
   int measure = analogRead(ph_pin);
@@ -136,16 +126,15 @@ void startScanning()
   Serial.print("\tVoltage: ");
   Serial.print(voltage, 3);
 
-  // PH_step = (voltage@PH7 - voltage@PH4) / (PH7 - PH4)
-  // PH_probe = PH7 - ((voltage@PH7 - voltage@probe) / PH_step)
-  float Po = 15 + ((2.5 - voltage) / 0.18);  //7 al posto di 15
+
+  float Po = 15 + ((2.5 - voltage) / 0.18);
   Serial.print("\tPH: ");
   Serial.print(Po, 3);
   Serial.println("");
   Serial.println("");
     
    
-    //WATER TEMPERATURE DisplayInfo ----------------------------------------------
+  /* ------------------WATER TEMPERATURE DisplayInfo ------------------ */
   
   Serial.println("---WATER temperature info---");
   sensors.requestTemperatures();
@@ -154,7 +143,7 @@ void startScanning()
   Serial.println(sensors.getTempCByIndex(0)); 
   Serial.println("");
 
-    //TURBIDITY DisplayInfo ------------------------------------------------------
+  /* ------------------ TURBIDITY DisplayInfo ------------------ */
   
   String sensorValue = String(analogRead(A1));   
   Serial.println("--- TURBIDITY info---");
@@ -163,32 +152,43 @@ void startScanning()
   Serial.println("");
 
   
-   //FRAME FILLING
-   frameSens.flag = 0;
-   framePos.flag = 1;
+  /* ------------------ FRAME FILLING ------------------ */
+  
+  frameSens.flag = 0;
+  framePos.flag = 1;
 
-   frameSens.temperatureWater = sensors.getTempCByIndex(0);  //one byte -----
-   frameSens.turbidity = (analogRead(A1) * (5.0 / 1024.0)); //conversion to volt range[0-5]
-   frameSens.phValue = Po;
+  frameSens.temperatureWater = sensors.getTempCByIndex(0); 
+  frameSens.turbidity = (analogRead(A1) * (5.0 / 1024.0)); //conversion to volt range[0-5]
+  frameSens.phValue = Po;
    
-   framePos.latitude = gps.location.lat(); //four byte ----
-   framePos.longitude = gps.location.lng();
+  framePos.latitude = gps.location.lat(); 
+  framePos.longitude = gps.location.lng();
    
    
-   // FRAME SENDING
-   sendFrameAndGetResponse(frameSens);
-   delay(6000);
-   if(gps.location.lat() != 0.0 && gps.location.lng() != 0.0)
-   sendFramePosAndGetResponse(framePos);
-   delay(1800000);
+  /* ------------------ FRAME SENDING ------------------ */
+  
+  sendFrameAndGetResponse(frameSens);
+  
+  delay(1000);
+  
+  if(gps.location.lat() != 0.0 && gps.location.lng() != 0.0)
+  {
+    sendFramePosAndGetResponse(framePos);
+  }
+     
+  delay(3585000); //ms
 }
 
-void sendFrameAndGetResponse(SigfoxMessageSens frame) {
+void sendFrameAndGetResponse(SigfoxMessageSens frame) 
+{
   Serial.println("Sending messages to the server ...");
+  
   // Start the module
   SigFox.begin();
-  // Wait at least 30mS after first configuration (100mS before)
+  
+  // Wait at least 100 ms after first configuration
   delay(100);
+  
   // Clears all pending interrupts
   SigFox.status();
   delay(1);
@@ -197,66 +197,88 @@ void sendFrameAndGetResponse(SigfoxMessageSens frame) {
   SigFox.write((uint8_t*)&frame,12);
 
   int ret = SigFox.endPacket(true);  // send buffer to SIGFOX network and wait for a response
-  if (ret > 0) {
+  
+  if (ret > 0) 
+  {
     Serial.println("No transmission");
-  } else {
+  } else 
+  {
     Serial.println("Transmission ok");
   }
 
   Serial.println(SigFox.status(SIGFOX));
   Serial.println(SigFox.status(ATMEL));
 
-  if (SigFox.parsePacket()) {
+  if (SigFox.parsePacket()) 
+  {
     Serial.println("Response from server:");
-    while (SigFox.available()) {
+    
+    while (SigFox.available()) 
+    {
       Serial.print("0x");
       Serial.println(SigFox.read(), HEX);
     }
-  } else {
+  } 
+  else 
+  {
     Serial.println("Could not get any response from the server");
     Serial.println("Check the SigFox coverage in your area");
     Serial.println("If you are indoor, check the 20dB coverage or move near a window");
   }
+  
   Serial.println();
-
   SigFox.end();
 }
 
-void sendFramePosAndGetResponse(SigfoxMessagePos frame) {
+void sendFramePosAndGetResponse(SigfoxMessagePos frame) 
+{
   Serial.println("Sending messages to the server ...");
+  
   // Start the module
   SigFox.begin();
-  // Wait at least 30mS after first configuration (100mS before)
+  
+  // Wait at least 100 ms after first configuration
   delay(100);
+  
   // Clears all pending interrupts
   SigFox.status();
+  
   delay(1);
 
   SigFox.beginPacket();
   SigFox.write((uint8_t*)&frame,12);
 
   int ret = SigFox.endPacket(true);  // send buffer to SIGFOX network and wait for a response
-  if (ret > 0) {
+  
+  if (ret > 0) 
+  {
     Serial.println("No transmission");
-  } else {
+  } 
+  else
+  {
     Serial.println("Transmission ok");
   }
 
   Serial.println(SigFox.status(SIGFOX));
   Serial.println(SigFox.status(ATMEL));
 
-  if (SigFox.parsePacket()) {
+  if (SigFox.parsePacket())
+  {
     Serial.println("Response from server:");
-    while (SigFox.available()) {
+    
+    while (SigFox.available())
+    {
       Serial.print("0x");
       Serial.println(SigFox.read(), HEX);
     }
-  } else {
+  } 
+  else 
+  {
     Serial.println("Could not get any response from the server");
     Serial.println("Check the SigFox coverage in your area");
     Serial.println("If you are indoor, check the 20dB coverage or move near a window");
   }
+  
   Serial.println();
-
   SigFox.end();
 }
