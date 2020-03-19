@@ -77,19 +77,14 @@ For more information on how to get started with these kind of product please vis
 
 WaterS System and detailed component part list:
 
-<center>
+-  [Arduino MKRFOX1200](https://www.arduino.cc/en/Main.ArduinoBoardMKRFox1200)
+-  [Thermal Probe LM35DZ](http://www.ti.com/product/LM35/technicaldocuments)
+-  [Turbidity Sensor](https://wiki.dfrobot.com/Turbidity_sensor_SKU__SEN0189)
+-  [pH Probe](https://www.uctronics.com/download/U3525.zip) (BNC Electrode Probe Controller)
 
-| Plugin | README |
-| ------ | ------ |
-| Arduino MKRFOX1200 | [https://www.arduino.cc/en/Main.ArduinoBoardMKRFox1200] |
-| Thermal Probe LM35DZ | [http://www.ti.com/product/LM35/technicaldocuments] |
-| Turbidity Sensor | [https://wiki.dfrobot.com/Turbidity_sensor_SKU__SEN0189] |
-| UBLOX NEO‐8M GPS Antenna | [https://www.u-blox.com/en/product/neo-m8-series] |
-| Seedstudio Solar Shield V2.2 | [http://wiki.seeedstudio.com/Solar_Charger_Shield_V2.2] |
-| pH Probe | BNC Electrode Probe Controller |
-| 3.7 V‐720 mAh LiPo Battery |  |
-
-</center>
+-  [UBLOX NEO‐8M GPS Antenna](https://www.u-blox.com/en/product/neo-m8-series)
+-  [Seedstudio Solar Shield V2.2](http://wiki.seeedstudio.com/Solar_Charger_Shield_V2.2)
+-  3.7 V‐720 mAh LiPo Battery (Generic Battery)
 
 License
 ----

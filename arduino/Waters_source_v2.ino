@@ -12,7 +12,15 @@
 
 #define ONE_WIRE_BUS 5
 #define SIGFOX_FRAME_LENGTH 12
-#define INTERVAL 600000
+
+#define SENDING_FRAME_INTERVAL_MS 1000
+#define LOW_POWER_MODE_INTERVAL_MS 3585000
+
+#define PACKET_SENS_FLAG_VALUE 0
+#define PACKET_GPS_FLAG_VALUE 1
+#define VERBOSE_MODE_OFF 0
+#define VERBOSE_MODE_ON 1
+
 #define DEBUG 0
 
 OneWire oneWire(ONE_WIRE_BUS);
@@ -40,6 +48,7 @@ typedef struct __attribute__ ((packed)) sigfox_message_two {   //struct of sigfo
 
 SigfoxMessageSens frameSens;   //frame that will be send to sigfox's backend
 SigfoxMessagePos framePos;   //frame that will be send to sigfox's backend
+uint8_t verboseValue;
 
 
 void setup() {
@@ -59,8 +68,7 @@ void setup() {
   String ID = SigFox.ID();
   String PAC = SigFox.PAC();
 
-  // Display module informations
-  
+  /* Display module informations */
   Serial.println("MKRFox1200 Sigfox configuration");
   Serial.println("SigFox FW version " + version);
   Serial.println("ID  = " + ID);
@@ -68,37 +76,78 @@ void setup() {
 
   Serial.println("");
   
-  //outdoor temperature
-  
+  /* Outdoor Temperature */  
   Serial.print("Module temperature: ");
   Serial.println(SigFox.internalTemperature());
   Serial.println("");
 
+  /* Set the verbose mode ON */
+  verboseValue = VERBOSE_MODE_ON;
+
   delay(100);
 
-  // Send the module to the deepest sleep
+  /* Send the module to the deepest sleep */
   SigFox.end();
 
 }
 
 void loop()
 {  
-  //GPS
-  while (Serial1.available())  //Serial port for GPS
+  /* ------------------ GPS Check ------------------ */
+
+  while (Serial1.available())  
   {
     if (gps.encode(Serial1.read()))
     {
       startScanning();
     }
   }
-  
 }
 
 void startScanning()
 {
-  /* ------------------GPS DisplayInfo ------------------ */
+
+  /* ------------------ VERBOSE CHECK  ------------------ */
+
+  if(verboseValue == VERBOSE_MODE_ON)
+  {
+    verbodeMode();
+  }
+    
   
-  Serial.println("---GPS info---");
+  /* ------------------ FRAME FILLING ------------------ */
+  
+  frameSens.flag = PACKET_SENS_FLAG_VALUE;
+  framePos.flag = PACKET_GPS_FLAG_VALUE;
+
+  frameSens.temperatureWater = sensors.getTempCByIndex(0); 
+  frameSens.turbidity = (analogRead(A1) * (5.0 / 1024.0)); //conversion to volt range[0-5]
+  frameSens.phValue = Po;
+   
+  framePos.latitude = gps.location.lat(); 
+  framePos.longitude = gps.location.lng();
+   
+   
+  /* ------------------ FRAME SENDING ------------------ */
+  
+  sendFrameAndGetResponse(frameSens);
+  
+  delay(SENDING_FRAME_INTERVAL_MS);
+  
+  if(gps.location.lat() != 0.0 && gps.location.lng() != 0.0)
+  {
+    sendFramePosAndGetResponse(framePos);
+  }
+     
+  delay(LOW_POWER_MODE_INTERVAL_MS);
+
+}
+
+void verboseMode()
+{
+  /* ------------------ GPS DisplayInfo ------------------ */
+  
+  Serial.println(" ---GPS info--- ");
   
   if (gps.location.isValid())
   {
@@ -115,9 +164,9 @@ void startScanning()
     Serial.println("");
   }
 
-  /* ------------------PH DisplayInfo ------------------ */
+  /* ------------------ PH DisplayInfo ------------------ */
  
-  Serial.println("---PH info---");
+  Serial.println(" --- PH info--- ");
   int measure = analogRead(ph_pin);
   Serial.print("Measure: ");
   Serial.print(measure);
@@ -132,11 +181,10 @@ void startScanning()
   Serial.print(Po, 3);
   Serial.println("");
   Serial.println("");
-    
-   
-  /* ------------------WATER TEMPERATURE DisplayInfo ------------------ */
+      
+  /* ------------------ WATER TEMPERATURE DisplayInfo ------------------ */
   
-  Serial.println("---WATER temperature info---");
+  Serial.println("--- WATER temperature info---");
   sensors.requestTemperatures();
   Serial.print("temp: ");
   String waterTemp = String(sensors.getTempCByIndex(0)); 
@@ -151,32 +199,6 @@ void startScanning()
   Serial.println((analogRead(A1) * (5.0 / 1024.0)));
   Serial.println("");
 
-  
-  /* ------------------ FRAME FILLING ------------------ */
-  
-  frameSens.flag = 0;
-  framePos.flag = 1;
-
-  frameSens.temperatureWater = sensors.getTempCByIndex(0); 
-  frameSens.turbidity = (analogRead(A1) * (5.0 / 1024.0)); //conversion to volt range[0-5]
-  frameSens.phValue = Po;
-   
-  framePos.latitude = gps.location.lat(); 
-  framePos.longitude = gps.location.lng();
-   
-   
-  /* ------------------ FRAME SENDING ------------------ */
-  
-  sendFrameAndGetResponse(frameSens);
-  
-  delay(1000);
-  
-  if(gps.location.lat() != 0.0 && gps.location.lng() != 0.0)
-  {
-    sendFramePosAndGetResponse(framePos);
-  }
-     
-  delay(3585000); //ms
 }
 
 void sendFrameAndGetResponse(SigfoxMessageSens frame) 
