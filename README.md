@@ -77,6 +77,8 @@ For more information on how to get started with these kind of product please vis
 
 WaterS System and detailed component part list:
 
+<center>
+
 | Plugin | README |
 | ------ | ------ |
 | Arduino MKRFOX1200 | [https://www.arduino.cc/en/Main.ArduinoBoardMKRFox1200] |
@@ -84,9 +86,10 @@ WaterS System and detailed component part list:
 | Turbidity Sensor | [https://wiki.dfrobot.com/Turbidity_sensor_SKU__SEN0189] |
 | UBLOX NEO‐8M GPS Antenna | [https://www.u-blox.com/en/product/neo-m8-series] |
 | Seedstudio Solar Shield V2.2 | [http://wiki.seeedstudio.com/Solar_Charger_Shield_V2.2] |
-| pH Probe |  |
+| pH Probe | BNC Electrode Probe Controller |
 | 3.7 V‐720 mAh LiPo Battery |  |
 
+</center>
 
 License
 ----
