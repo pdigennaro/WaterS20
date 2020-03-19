@@ -57,6 +57,16 @@ Detailed instructions for installation in popular operating systems can be found
 The Arduino MKRFOX1200 requires also the installation of additional libraries (for adding the [SigFox](https://www.sigfox.com/en) connectivity to the Arduino platform) to be integrated into the Arduino IDE. All the necessary information are available below:
 - [Guide MKRFOX 1200](https://www.arduino.cc/en/Guide/MKRFox1200)
 
+Additional libraries used:
+
+| Plugin | README |
+| ------ | ------ |
+| Arduino Sigfox - libraries | [https://github.com/arduino-libraries/SigFox] |
+| OneWire | [https://github.com/PaulStoffregen/OneWire] |
+| Arduino Dallas - library (Arduino-Temperature-Control) | [https://github.com/milesburton/Arduino-Temperature-Control-Library] |
+| Arduino Low - Power | [https://www.arduino.cc/en/Reference/ArduinoLowPower] |
+| TinyGPS++ | [https://github.com/mikalhart/TinyGPSPlus] |
+
 After that, just import the arduino/Waters\_source\_v2.ino file into the Arduino IDE and deploy it to your device!
 
 For more information on how to get started with these kind of product please visit the [Getting Started page](https://www.arduino.cc/en/Guide/HomePage).
