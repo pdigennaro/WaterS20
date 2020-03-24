@@ -79,9 +79,9 @@ n_features = X_input.shape[2]
 if not config.load_model:
 	# define model
 	model = Sequential()
-	# input layer
+	# first LSTM layer
 	model.add(LSTM(config.NEURONS, activation='relu', return_sequences=True, input_shape=(n_steps, n_features)))
-	# hidden layer
+	# second LSTM layer
 	model.add(LSTM(config.NEURONS, activation='relu'))
 	# output layer
 	model.add(Dense(n_features))
@@ -101,7 +101,7 @@ if not config.load_model:
 	plt.ylabel('loss')
 	plt.xlabel('epoch')
 	
-	plt.legend(['train', 'test'], loc='upper left')
+	plt.legend(['train', 'validation'], loc='upper left')
 	
 	plt.savefig('loss.png')
 	
