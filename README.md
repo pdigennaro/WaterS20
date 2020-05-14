@@ -42,7 +42,7 @@ $ ./train.py
 ```
 Train data will be created in the same folder of the Python script.
 
-You can also use the automatic train with dynamic setting of neurons and epochs (see the train_script.sh file). In this case, a custom "RESULTS" folder will be created, with the train data according to the dynamic configuration chosen.
+You can also use the automatic train with dynamic setting of neurons and epochs (see the <i>train_script.sh</i> file). In this case, a custom "RESULTS" folder will be created, with the train data according to the dynamic configuration chosen.
 
 ## Arduino Environment
 
