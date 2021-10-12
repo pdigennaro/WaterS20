@@ -23,7 +23,8 @@ The libraries used by WaterS 2.0 are the following:
 | Matplotlib | [https://matplotlib.org/] |
 
 # Instructions
-We suggest to use a Linux based distro such as Ubuntu.
+The proposed source files have been developed and tested with Ubuntu 18.04 LTS and Python 3.6.9 and we encourage to use a similar environment to run the scripts.
+
 Use the following commands to install the scripts' dependencies:
 
 ```sh
