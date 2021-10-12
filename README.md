@@ -27,8 +27,8 @@ We suggest to use a Linux based distro such as Ubuntu.
 Use the following commands to install the scripts' dependencies:
 
 ```sh
-$ sudo apt-get install python3-pip python3-tk
-$ pip3 install tensorflow-gpu keras numpy pandas matplotlib sklearn h5py
+$ sudo apt-get install python3-pip python3-tk graphviz
+$ pip3 install -r reqs.txt
 ```
 
 Use the config.py.demo to build a config settings file, setting:
