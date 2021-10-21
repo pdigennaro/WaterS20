@@ -1,0 +1,8 @@
+# build the container using the Dockerfile
+docker build --tag waters-container .
+
+# run the container for an indefinite period
+docker run -d waters-container sleep infinity
+
+# enter the container, for example to run the train script
+docker exec -it CONTAINER_ID /bin/bash
